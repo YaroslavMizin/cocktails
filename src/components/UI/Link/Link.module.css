@@ -1,0 +1,38 @@
+.container {
+    width: fit-content;
+    height: fit-content;
+    padding: 3px;
+    content: '';
+    background: linear-gradient(
+        var(--rotate),
+        #ff00c1 0%,
+        #9600ff 25%,
+        #4900ff 50%,
+        #00b8ff 80%,
+        #00fff9 100%
+    );
+    box-shadow:  1px 1px 5px #9600ff;
+    border-radius: 6px;
+    transition: --rotate 9999s linear;
+}
+
+.container:hover {
+    --rotate: 36000deg;
+    transition: --rotate 200s linear;
+}
+
+.link {
+    width: fit-content;
+    height: 90%;
+    padding: 2px 13px;
+    border-radius: 6px;
+    background-color: #000000;
+    text-decoration: none;
+    color: #ffffff;
+}
+ 
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 45deg;
+    inherits: false;
+}

@@ -1,0 +1,26 @@
+.button {
+    border: 0;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(
+        45deg,
+        #ff00c1 0%,
+        #9600ff 25%,
+        #4900ff 50%,
+        #00b8ff 80%,
+        #00fff9 100%
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+}
+
+.active {
+    border: 0;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ff00c1;
+    background: none;
+}

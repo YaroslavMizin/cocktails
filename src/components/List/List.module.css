@@ -1,0 +1,15 @@
+.list {
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.container {
+    width: fit-content;
+    height: 100%;
+    max-width: 1250px;
+    margin: auto;  
+}

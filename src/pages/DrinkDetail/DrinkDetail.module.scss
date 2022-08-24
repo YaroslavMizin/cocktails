@@ -1,0 +1,36 @@
+.container {
+    max-width: 1250px;
+    height: 100%;
+}
+
+.content_box {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    margin-top: 140px;
+    padding: 140px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    color: #ffffff;
+    text-align: center;
+}
+
+.image {
+    width: min-content;
+}
+
+.tags {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.description {
+    width: fit-content;
+}

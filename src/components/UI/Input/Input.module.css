@@ -1,0 +1,38 @@
+.input {
+    border-radius: 6px;
+    padding: 7px 18px;
+    position: relative;
+    margin: 4px;
+    font-family: sans-serif;
+    color: #303030;
+    outline: 0;
+    border: 0;
+}
+
+.container {
+    width: fit-content;
+    height: fit-content;
+    content: '';
+    background: linear-gradient(
+        var(--rotate),
+        #ff00c1 0%,
+        #9600ff 25%,
+        #4900ff 50%,
+        #00b8ff 80%,
+        #00fff9 100%
+    );
+    z-index: -1;
+    border-radius: 6px;
+    transition: --rotate 9999s linear;
+}
+
+.input:focus::before {
+    --rotate: 36000deg;
+    transition: --rotate 200s linear;
+}
+
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 45deg;
+    inherits: false;
+}
