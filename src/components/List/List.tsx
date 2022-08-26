@@ -1,41 +1,34 @@
-import React, { FC, useState, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import css from './List.module.css';
-import Service from '../../API/Service';
 import Loader from '../UI/Loader/Loader';
 import { useTypedSelector } from '../../hooks/useTypeSelector';
-import { useFetching } from '../../hooks/useFetching';
-import { ICard } from '../../types/drinks';
 import Card from '../../components/Card/Card';
+import { useDispatch } from 'react-redux';
+import { changeList } from '../../store/actionCreators/list';
+import { finishLoading, setLoading } from '../../store/actionCreators/loading';
 
-interface ListProps {
-    children: any[] | React.ReactNode;
-}
+const List: FC = () => {
 
-const List: FC<ListProps> = ({ children }) => {
-    const [items, setItems] = useState<ICard[]>([]);
-    const { letter } = useTypedSelector(state => state.letterlist);
-    const { loading } = useTypedSelector(state => state.loading);
-    const [fetchCards, error] = useFetching(async () => {
-        const response = await Service.getListByLetter(letter);
-        setItems(response.data.drinks);
-    });
+    const dispatch = useDispatch();
+    const { letter, list, all } = useTypedSelector(state => state.letterlist);
+    const { loading } = useTypedSelector(state => state);
 
     useEffect(() => {
-        fetchCards(letter);
-    }, [letter]);
-
-   
+        dispatch(changeList());
+    }, [letter])
 
     return (
         <div className={css.container}>
-            {loading ? <Loader />
+            {loading ? <Loader style={{marginTop: '300px'}}/>
                 :
                 <div className={css.list}>
-                    {items.map(item =>
+                    {list.length? list.map(item =>
                         <Card
                             key={Number(item.idDrink)}
                             drink={item}>
-                        </Card>)}
+                        </Card>)
+                        :
+                        <h1 className={css.not_found}>No drinks found</h1>}
                 </div>}
         </div>
     );

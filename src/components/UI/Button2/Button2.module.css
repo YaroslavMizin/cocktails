@@ -16,6 +16,10 @@
     cursor: pointer;
 }
 
+.button:hover {
+    text-shadow: 0.2px 0.2px 10px#00fff9;
+}
+
 .active {
     border: 0;
     font-size: 25px;

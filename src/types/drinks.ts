@@ -1,10 +1,10 @@
 export interface ICard {
     dateModified: null | string
-    idDrink: null | string
+    idDrink: string
     strAlcoholic: null | string
     strCategory: null | string
     strCreativeCommonsConfirmed: null | string
-    strDrink: null | string
+    strDrink: string
     strDrinkAlternate: null | string
     strDrinkThumb: string
     strGlass: null | string
@@ -49,3 +49,12 @@ export interface ICard {
 export interface ICardList {
     drinks: ICard[];
 }
+
+interface setDetails {
+    type: string;
+    payload: ICard;
+}
+
+export type detailsAction = setDetails;
+
+export const SET_DETAILS = "SET_DETAILS";

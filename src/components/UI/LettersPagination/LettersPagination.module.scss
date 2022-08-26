@@ -1,8 +1,21 @@
 .container {
+    bottom: 0;
+}
+
+.pagination {
     width: 100%;
-    margin: auto;
+    margin: 10px auto;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    bottom: 0;
+}
+
+.title {
+    color: #ffffff;
+    font-family: 'Pacifico';
+    letter-spacing: 3px;
+    margin: 0 auto;
+    text-align: center;
 }

@@ -1,15 +1,19 @@
 .container {
+    margin: auto;
     max-width: 1250px;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 auto auto;
 }
 
 .content_box {
     width: 90%;
-    height: 100%;
     margin: auto;
-    margin-top: 140px;
-    padding: 140px;
+    padding: 100px;
     display: flex;
+    gap: 10%;
     justify-content: space-between;
 }
 
@@ -19,12 +23,11 @@
 }
 
 .image {
-    width: min-content;
+    border-radius: 3%;
 }
 
 .tags {
     width: 100%;
-    margin-top: 15px;
     display: flex;
     gap: 15px;
     justify-content: center;
@@ -32,5 +35,8 @@
 }
 
 .description {
-    width: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

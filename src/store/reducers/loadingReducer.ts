@@ -3,9 +3,9 @@ import { defaultState, loadingAction, loadingActionTypes } from "../../types/loa
 export const loadingReducer = (state = defaultState, action: loadingAction) => {
     switch (action.type) {
         case loadingActionTypes.SET_LOADING:
-            return { loading: true };
+            return state = true ;
         case loadingActionTypes.FINISH_LOADING:
-            return { loading: false };
+            return state = false;
         default:
             return state;
     }

@@ -10,5 +10,5 @@ interface publicRoutes {
 
 export const publicRoutes = [
     {path: '/', component: Home},
-    // {path: '/drinks/:id', component: DrinkDetail}
+    {path: '/drinks/:id', component: DrinkDetail}
 ]

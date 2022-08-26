@@ -20,8 +20,10 @@ const Card: FC<CardProps> = ({ drink }) => {
                 to={`/drinks/${drink.idDrink}`}
                 className={css.container}>
                 <img
-                    className={css.review}
-                    src={drink.strDrinkThumb + '/preview'}></img>
+                    width='200px'
+                    height='200px'
+                    className={css.preview}
+                    src={drink.strDrinkThumb + '/preview'}/>
             </NavLink>
         </div>
     );

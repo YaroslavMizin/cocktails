@@ -1,0 +1,17 @@
+.filter {
+    margin: auto;
+    width: 180px;
+    top: 180px;
+    margin-left: 30px;
+    position: sticky;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.title {
+    color: #ffffff;
+    cursor: pointer;
+    text-transform: uppercase;
+}

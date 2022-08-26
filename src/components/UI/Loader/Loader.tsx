@@ -1,9 +1,13 @@
 import React, { FC } from 'react';
-import css from './Loader.module.css'
+import css from './Loader.module.css';
 
-const Loader: FC = () => {
+interface LoaderProps {
+    style?: any;
+}
+
+const Loader: FC<LoaderProps> = ({style}) => {
     return (
-        <div className={css.box}>
+        <div style={style}>
             <div className={css.container}>
                 <div className={css.loader}>
                 </div>
@@ -11,7 +15,6 @@ const Loader: FC = () => {
                 <div className={css.pointer_2}></div>
             </div>
         </div>
-
     );
 };
 

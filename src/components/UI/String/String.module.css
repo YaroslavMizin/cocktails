@@ -1,0 +1,10 @@
+.string {
+    color: white;
+    font-family: 'Pacifico';
+    margin: 0;
+    cursor: pointer;
+}
+
+.string:hover {
+    color: pink;
+}
