@@ -14,7 +14,6 @@ export const useFetching = (callback: () => Promise<void>) => {
             await callback();
         } catch (e: any) {
             setError(e.message);
-            console.log(e.message);
         } finally {
             dispatch(finishLoading());
         }

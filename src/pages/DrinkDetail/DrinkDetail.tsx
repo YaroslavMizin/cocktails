@@ -7,7 +7,6 @@ import PostService from '../../API/Service'
 import { useTypedSelector } from '../../hooks/useTypeSelector';
 import Loader from '../../components/UI/Loader/Loader';
 import { ICard } from '../../types/drinks';
-import { Card } from '../../utils/drinks';
 import Link2 from '../../components/UI/Link2/Link2';
 import Ingredients from '../../components/UI/Ingredients/Ingredients';
 import { setDetails } from '../../store/actionCreators/details';
@@ -17,13 +16,13 @@ const DrinkDetail = () => {
     const { loading, details } = useTypedSelector(state => state);
     const params = useParams();
     const [fetchItem, error] = useFetching(async () => {
-        const response: ICard[] = await PostService.getItemById(params.id);
-        dispatch(setDetails(response[0]))
+        const response: ICard = await PostService.getCoctailByName(params.name);
+        dispatch(setDetails(response))
     });
 
     useEffect(() => {
         fetchItem();
-    }, []);
+    }, [params.name]);
 
     return (
         <div className={css.container}>

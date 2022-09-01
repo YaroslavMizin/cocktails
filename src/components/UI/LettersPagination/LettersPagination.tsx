@@ -1,12 +1,11 @@
-import React, { FC } from 'react';
+import { FC, memo } from 'react';
 import css from './LettersPagination.module.scss';
 import { lettersArray } from '../../../utils/letters';
 import Button2 from '../Button2/Button2';
-import { changeLetter } from '../../../store/actionCreators/list';
-import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-const LettersPagination = () => {
-    const dispatch = useDispatch();
+const LettersPagination = memo(() => {
+    const navigate = useNavigate();
 
     return (
         <div className={css.container}>
@@ -15,12 +14,12 @@ const LettersPagination = () => {
                 {lettersArray.map(letter =>
                     <Button2
                         key={letter}
-                        onClick={() => dispatch(changeLetter(letter))}>
+                        onClick={() => navigate(`/drinks/list/${letter}`)}>
                         {letter}
                     </Button2>)}
             </div>
         </div>
     );
-};
+});
 
 export default LettersPagination;

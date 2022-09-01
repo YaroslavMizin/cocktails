@@ -1,0 +1,19 @@
+.container {
+    flex: 1 1 auto;
+    margin: auto;
+}
+
+.about {
+    color: #ffffff;
+    margin: 20px auto;
+    max-width: 60%;
+    text-align: center;
+}
+
+.about a {
+    color: #ffffff;
+}
+
+.about a:visited, .about a:hover {
+    color: pink;
+}

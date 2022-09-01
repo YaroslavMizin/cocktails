@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, memo} from 'react';
 import css from './Button2.module.css';
 import {useTypedSelector} from '../../../hooks/useTypeSelector';
 
@@ -7,7 +7,7 @@ interface Button2Props {
     onClick: (e: any) => void;
 }
 
-const Button2: FC<Button2Props> = ({onClick, children}) => {
+const Button2: FC<Button2Props> = memo(({onClick, children}) => {
 const {letter} = useTypedSelector(state => state.letterlist)
     return (
         <button
@@ -16,6 +16,6 @@ const {letter} = useTypedSelector(state => state.letterlist)
             {children}
         </button>
     );
-};
+});
 
 export default Button2;

@@ -1,19 +1,24 @@
-import { FC } from 'react';
-import css from './String.module.css'
+import { FC, memo } from 'react';
+import css from './String.module.css';
 
 interface StringProps {
     children: string;
-    onClick: () => {}
+    active?: boolean;
+    onClick: () => {};
 }
 
-const String: FC<StringProps> = ({ children, onClick }) => {
+const String: FC<StringProps> = memo(({ children, active, onClick }) => {
     return (
-        <h3 
-            className={css.string}
-            onClick={onClick}>
+        <button
+        disabled={active}
+        onClick={onClick}
+        className={css.container}>
+            <h2 
+            className={active? css.active : css.string}>
             {children}
-        </h3>
+            </h2>
+        </button>
     );
-};
+});
 
 export default String;

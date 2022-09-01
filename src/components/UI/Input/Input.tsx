@@ -1,22 +1,33 @@
 import css from './Input.module.css';
-import React, {FC} from 'react';
+import React, { FC } from 'react';
+
 
 interface InputProps {
-    placeholder?: string;
-    onChange?: React.FormEventHandler<HTMLInputElement>
+    placeholder: string;
+    onChange: React.FormEventHandler<HTMLInputElement>;
+    onKeyDown?: React.FormEventHandler<HTMLInputElement>;
+    onKeyUp?: React.KeyboardEventHandler<EventTarget>
+    value: string;
+    style?: {}
 }
 
-const Input:FC<InputProps> = ({placeholder, onChange}) => {
+const Input = React.forwardRef<HTMLInputElement, InputProps>(({ placeholder, value, style, onKeyUp, onKeyDown, onChange }, ref) => {
+
     return (
-        <div className={css.container}>
+        <div
+            style={style}
+            className={css.container}>
             <input
-            placeholder = {placeholder}
-            className={css.input}
-            onChange={(e) => onChange?(e.target.value) : null}>
+                ref={ref}
+                value={value}
+                placeholder={placeholder}
+                className={css.input}
+                onKeyUp={onKeyUp}
+                onKeyDown={onKeyDown}
+                onChange={onChange}>
             </input>
         </div>
-
     );
-};
+});
 
 export default Input;

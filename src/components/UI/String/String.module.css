@@ -1,3 +1,13 @@
+.container {
+    background: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    text-align: start;
+    height: max-content;
+    width: max-content;
+}
+
 .string {
     color: white;
     font-family: 'Pacifico';
@@ -7,4 +17,13 @@
 
 .string:hover {
     color: pink;
+}
+
+.active {
+    font-family: 'Pacifico';
+    margin: 0;
+    cursor: default;
+    color: pink;
+    text-decoration: underline;
+    text-underline-offset: 5px;
 }

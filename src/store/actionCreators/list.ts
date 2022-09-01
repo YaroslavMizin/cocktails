@@ -2,7 +2,7 @@ import { ICard } from "../../types/drinks";
 import { listActionsTypes } from "../../types/list"
 
 
-export const changeLetter = (letter: string) => {
+export const changeLetter = (letter: string | undefined) => {
     return ({type: listActionsTypes.CHANGE_LETTER, payload: letter});
 }
 

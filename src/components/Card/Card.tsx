@@ -1,32 +1,33 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import css from './Card.module.scss';
 import { NavLink } from 'react-router-dom';
-import { ICard } from '../../types/drinks';
 
 interface CardProps {
-    drink: ICard;
+    title: string;
+    thumb: string;
+    type: string
     children?: React.ReactNode;
 }
 
-const Card: FC<CardProps> = ({ drink }) => {
+const Card: FC<CardProps> = memo(({ title, thumb, type }) => {
     return (
         <div className={css.card}>
             <NavLink
-                to={`/drinks/${drink.idDrink}`}
+                to={`/${type}/${title}`}
                 className={css.title}>
-                {drink.strDrink}
+                {title}
             </NavLink>
             <NavLink
-                to={`/drinks/${drink.idDrink}`}
+                to={`/${type}/${title}`}
                 className={css.container}>
                 <img
                     width='200px'
                     height='200px'
                     className={css.preview}
-                    src={drink.strDrinkThumb + '/preview'}/>
+                    src={thumb}/>
             </NavLink>
         </div>
     );
-};
+});
 
 export default Card;

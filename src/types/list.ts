@@ -5,14 +5,12 @@ export interface listState {
     error: null | string,
     all: ICard[],
     list: ICard[],
-    filters?: {
+    filters: {
         alcoholic: boolean,
         nonAlcoholic: boolean,
-        glass: boolean,
+        optionalAlcohol: boolean,
     }
 }
-
-export const CHANGE_LETTER = 'CHANGE_LETTER';
 
 export enum listActionsTypes {
     CHANGE_LETTER = 'CHANGE_LETTER',

@@ -3,6 +3,7 @@ import css from './Ingredients.module.scss';
 import { ICard } from '../../../types/drinks';
 import { img, setImages, setMeasures } from '../../../utils/ingregients';
 import Loader from '../Loader/Loader';
+import { NavLink } from 'react-router-dom';
 
 interface ImageProps {
     ingredients: ICard;
@@ -22,17 +23,18 @@ const Ingredients: FC<ImageProps> = ({ ingredients }) => {
 
     return (
         <div className={css.container}>
-            {loaded ? images.map((number, index) =>
+            {loaded ? images.map((name, index) =>
                 <div
-                    key={number}
+                    key={name}
                     className={css.card}>
-                    <span className={css.title}>
-                        {number}
-                    </span>
-
+                    <NavLink
+                    to={`/ingredients/${name}`}
+                    className={css.link}>
+                        {name}
+                    </NavLink>
                     <img
-                        src={img(number)}
-                        alt={number} />
+                        src={img(name, '-small')}
+                        alt={name} />
                     <span className={css.title}>
                         {measures[index]}
                     </span>

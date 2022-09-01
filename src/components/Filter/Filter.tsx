@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, memo, useState } from 'react';
 import { Button } from '../UI/Button/Button';
 import css from './Filter.module.scss';
 
@@ -6,10 +6,9 @@ interface FilterProps {
     children: React.ReactNode | React.ReactNode[];
 }
 
-const Filter: FC<FilterProps> = ({ children }) => {
+const Filter: FC<FilterProps> = memo(({ children }) => {
 
     const [fold, setFold] = useState<boolean>(false);
-
     const unFold = (state: boolean) => {
         state ? setFold(false) : setFold(true);
     }
@@ -21,6 +20,6 @@ const Filter: FC<FilterProps> = ({ children }) => {
             {fold ? children : null}
         </div>
     );
-};
+});
 
 export default Filter;

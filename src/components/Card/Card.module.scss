@@ -14,10 +14,6 @@
     max-width: 200px;
 }
 
-.title:hover {
-    text-shadow: -3px -3px 7px #ffffff;
-}
-
 .container {
     display: flex;
     justify-content: center;
@@ -27,6 +23,11 @@
     position: relative;
     box-shadow: 0.5px 0.5px 4px #ff008c;
     border-radius: 20%;
+}
+
+.card:hover > .title {
+    color: pink;
+    text-shadow: 0.5px 0.5px 10px #ffffff;
 }
 
 .container::before {

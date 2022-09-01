@@ -11,8 +11,8 @@ export interface ICard {
     strIBA: null | string
     strImageAttribution: null | string
     strImageSource: null | string
-    strIngredient1: null | string
-    strIngredient2: null | string
+    strIngredient1: string
+    strIngredient2: string
     strIngredient3: null | string
     strIngredient4: null | string
     strIngredient5: null | string

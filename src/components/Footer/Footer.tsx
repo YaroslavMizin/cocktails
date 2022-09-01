@@ -1,11 +1,15 @@
-import React from 'react';
+import { ReactNode, FC } from 'react';
 import LettersPagination from '../UI/LettersPagination/LettersPagination';
-import css from './Footer.module.scss'
+import css from './Footer.module.scss';
 
-const Footer = () => {
+interface FooterProps {
+    children?: ReactNode;
+}
+
+const Footer: FC<FooterProps> = ({ children }) => {
     return (
         <div className={css.footer}>
-            <LettersPagination></LettersPagination>
+            {children}
         </div>
     );
 };

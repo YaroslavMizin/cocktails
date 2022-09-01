@@ -16,3 +16,8 @@
     -webkit-text-fill-color: transparent;
     cursor: pointer;
 }
+
+.link2:hover {
+    border-bottom: 1px solid #9600ff;
+    margin-bottom: -1px;
+}

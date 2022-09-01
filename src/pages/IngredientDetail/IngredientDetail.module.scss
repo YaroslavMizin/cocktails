@@ -1,0 +1,59 @@
+.container {
+    flex: 1 auto auto;
+    margin: auto;
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content_box {
+    display: flex;
+    gap: 40px;
+    padding-bottom: 60px;
+}
+
+.ingredient {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 630px;
+}
+
+.title {
+    color: #ffffff;
+    text-align: center;
+}
+
+.link {
+    color: #ffffff;
+    max-width: 200px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 4px;
+}
+
+.link:hover {
+    color: pink;
+}
+
+.description {
+    color: #ffffff;
+    text-align: center;
+}
+
+.drinks {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    max-width: 630px;
+    gap: 10px;
+}
+
+.card {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
