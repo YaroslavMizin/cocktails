@@ -1,6 +1,6 @@
-import { forwardRef, useEffect, useRef} from 'react';
-import { useFilter } from '../../../hooks/useFilter';
-import { useTypedSelector } from '../../../hooks/useTypeSelector';
+import { forwardRef, useRef} from 'react';
+import { useSearch } from '../../../hooks/useSeatch';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import css from './Select.module.css';
 
 interface SelectProps {
@@ -9,8 +9,8 @@ interface SelectProps {
 }
 
 const Select = forwardRef<HTMLLIElement[], SelectProps>(({query, onClick}, ref) => {
-    const {all} = useTypedSelector(state => state.letterlist);
-    const filteredDrinks = useFilter(query, all);
+    const {allDrinks} = useTypedSelector(state => state.global);
+    const filteredDrinks = useSearch(query, allDrinks);
     const arrayRef = useRef<HTMLLIElement[]>([]);
     const changeItem = (e: React.KeyboardEvent<EventTarget>) => {
         if(e.key === "ArrowDown") {

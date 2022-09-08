@@ -26,4 +26,11 @@ export enum letters {
     z = "z"
 }
 
-export const lettersArray = Object.values(letters);
+export const lettersArray: string[] = Object.values(letters);
+
+export const next = (title?: string) => {
+    if(title) {
+        const current = lettersArray.indexOf(title);
+        return current === lettersArray.length -1 ? lettersArray[0] : lettersArray[current + 1]
+    }
+}

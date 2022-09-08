@@ -1,6 +1,5 @@
 import axios from "axios";
 import { ICardList } from "../types/drinks";
-import { ICard } from "../types/drinks";
 
 const root = 'https://www.thecocktaildb.com/api/json/v1/1/';
 const search = 'search.php';
@@ -8,13 +7,13 @@ const filter = 'filter.php';
 const lookup = 'lookup.php';
 
 export default class Service {
-    static async getListByLetter (letter: any) {
+    static async getListByLetter (letter: string | undefined) {
         const response = await axios.get<ICardList>(root+search, {
             params: {
                 f: letter
             }
         });
-        return response;
+        return response.data.drinks;
     }
     static async getCoctailByName (name: any) {
         const response = await axios.get<ICardList>(root+search, {

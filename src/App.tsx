@@ -1,15 +1,18 @@
 import { useEffect } from 'react';
-import NavBar from './components/NavBar/NavBar';
-import { BrowserRouter } from 'react-router-dom';
-import AppRouter from './components/AppRouter/AppRouter';
-import { lettersArray } from './utils/letters';
 import { useFetchingAll } from './hooks/useFetching';
-import Footer from './components/Footer/Footer';
+import { BrowserRouter } from 'react-router-dom';
+import { lettersArray } from './utils/letters';
+import NavBar from './components/NavBar/NavBar';
+import AppRouter from './components/AppRouter/AppRouter';
+import { useAllIngredients } from './hooks/useIngredients';
 
 const App = () => {
-  const [fetchAllCards, error] = useFetchingAll();
+  const [setIngredients] = useAllIngredients();
+  const [fetchAllCards] = useFetchingAll();
+  
   useEffect(() => {
     fetchAllCards(lettersArray);
+    setIngredients();
   }, []);
 
   return (

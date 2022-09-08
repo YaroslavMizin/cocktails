@@ -4,12 +4,12 @@ import css from './DrinkDetail.module.scss';
 import { useParams } from 'react-router-dom';
 import { useFetching } from '../../hooks/useFetching';
 import PostService from '../../API/Service'
-import { useTypedSelector } from '../../hooks/useTypeSelector';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import Loader from '../../components/UI/Loader/Loader';
 import { ICard } from '../../types/drinks';
 import Link2 from '../../components/UI/Link2/Link2';
 import Ingredients from '../../components/UI/Ingredients/Ingredients';
-import { setDetails } from '../../store/actionCreators/details';
+import { setDetails } from '../../store/actions/details';
 
 const DrinkDetail = () => {
     const dispatch = useDispatch();

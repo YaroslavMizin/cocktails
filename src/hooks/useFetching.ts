@@ -1,10 +1,11 @@
+import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Service from "../API/Service";
-import { changeList, setGlobalList } from "../store/actionCreators/list";
-import { finishLoading, setLoading } from "../store/actionCreators/loading";
+import { setGlobalDrinks } from "../store/actions/global";
+import { finishLoading, setLoading } from "../store/actions/loading";
 
-export const useFetching = (callback: () => Promise<void>) => {
+export const useFetching = (callback: () => Promise<void>): [() => void, string] => {
     const [error, setError] = useState<any>('');
     const dispatch = useDispatch();
 
@@ -27,17 +28,12 @@ export const useFetchingAll = () => {
 
     const fetching = async (letter: string) => {
             try {
-                dispatch(setLoading());
                 const response = await Service.getListByLetter(letter);
-                dispatch(setGlobalList([...response.data.drinks]));
-                dispatch(changeList());
+                dispatch(setGlobalDrinks([...response]));
             } catch (e: any) {
                 setError(e.message);
             }
-            finally {
-                dispatch(finishLoading());
-            }
     }
-    const fetchAll = (array: string[]) => {array.forEach(letter => fetching(letter))} ;
+    const fetchAll = (array: string[]) => {array.forEach(letter => fetching(letter))};
     return [fetchAll, error];
 }

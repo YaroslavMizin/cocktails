@@ -1,17 +1,16 @@
 import React, {FC, memo} from 'react';
 import css from './Button2.module.css';
-import {useTypedSelector} from '../../../hooks/useTypeSelector';
 
 interface Button2Props {
     children: React.ReactNode;
     onClick: (e: any) => void;
+    current?: string;
 }
 
-const Button2: FC<Button2Props> = memo(({onClick, children}) => {
-const {letter} = useTypedSelector(state => state.letterlist)
+const Button2: FC<Button2Props> = memo(({onClick, children, current}) => {
     return (
         <button
-        className={letter === children? css.active : css.button}
+        className={current === children? css.active : css.button}
         onClick={onClick}>
             {children}
         </button>

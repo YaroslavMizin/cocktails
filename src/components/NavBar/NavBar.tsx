@@ -1,8 +1,6 @@
 import css from './NavBar.module.css';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import Link from '../UI/Link/Link'
-import Button2 from '../UI/Button2/Button2';
-import Input from '../UI/Input/Input';
 import Link2 from '../UI/Link2/Link2';
 import Search from '../Search/Search';
 

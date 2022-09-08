@@ -11,6 +11,7 @@
 .string {
     color: white;
     font-family: 'Pacifico';
+    font-weight: lighter;
     margin: 0;
     cursor: pointer;
 }

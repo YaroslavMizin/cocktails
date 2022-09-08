@@ -32,9 +32,15 @@ const Ingredients: FC<ImageProps> = ({ ingredients }) => {
                     className={css.link}>
                         {name}
                     </NavLink>
+                    <NavLink
+                    className={css.img}
+                    to={`/ingredients/${name}`}>
                     <img
-                        src={img(name, '-small')}
+                        width='200px'
+                        height='200px'
+                        src={img(name, '-medium')}
                         alt={name} />
+                    </NavLink>
                     <span className={css.title}>
                         {measures[index]}
                     </span>

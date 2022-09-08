@@ -1,28 +1,30 @@
-import { memo, useState } from 'react';
-import css from './Home.module.css';
+import { memo, useEffect, useState } from 'react';
+import css from './Home.module.scss';
 import List from '../../components/List/List';
 import Card from '../../components/Card/Card';
-import { img } from '../../utils/ingregients';
-import { useRandomDrinks, useRandomIngredients } from '../../hooks/useRandom';
-import { useTypedSelector } from '../../hooks/useTypeSelector';
+import { img} from '../../utils/ingregients';
+import { useRandom } from '../../hooks/useRandom';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import Loader from '../../components/UI/Loader/Loader';
 import Footer from '../../components/Footer/Footer';
 
 const Home = memo(() => {
-    const { loading, letterlist: { all } } = useTypedSelector(state => state);
-    const [load, setLoaded] = useState(false);
-    const drinks = useRandomDrinks(all);
-    const ingredients = useRandomIngredients(all);
+    const { loading, global: {allDrinks} } = useTypedSelector(state => state);
+    const [page, setPage] = useState(false);
+    const [drinks, ingredients, setDrinks] = useRandom(6);
 
-    setTimeout(() => setLoaded(true), 800);
+    useEffect(() => {
+        setPage(true);
+        setDrinks(allDrinks);
+    }, [page, allDrinks]);
 
     return (
         <>
             <main className={css.main}>
-                {loading ? <Loader />
+                {loading? <Loader />
                     :
                     <div className={css.container}>
-                        {load ? <List
+                        <List
                             title='drinks'
                             type='drinks'>
                             {drinks.map(item =>
@@ -33,8 +35,8 @@ const Home = memo(() => {
                                     thumb={item.strDrinkThumb}>
                                 </Card>)
                             }
-                        </List> : <Loader />}
-                        {load && <List
+                        </List>
+                        <List
                             title='ingredients'
                             type='ingredients'>
                             {ingredients.map(item =>
@@ -45,7 +47,7 @@ const Home = memo(() => {
                                     thumb={img(item, '-medium')}>
                                 </Card>)
                             }
-                        </List>}
+                        </List>
                     </div>
                 }
             </main>

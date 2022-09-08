@@ -1,4 +1,4 @@
-import { defaultState, loadingAction, loadingActionTypes } from "../../types/loading";
+import { defaultState, loadingAction, loadingActionTypes } from "../types/loading";
 
 export const loadingReducer = (state = defaultState, action: loadingAction) => {
     switch (action.type) {

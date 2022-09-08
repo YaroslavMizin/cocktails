@@ -1,10 +1,16 @@
 .aside {
     height: auto;
-    width: 190px;
+    width: 250px;
     background-image: url('../../assets/background.jpg');
     background-size: contain;
-    margin-bottom: 0;
-    bottom: 0;
-    top: 0;
     box-shadow: 1px -10px 15px #0712af;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.container {
+    top: 180px;
+    position: sticky;
+    z-index: 10;
 }

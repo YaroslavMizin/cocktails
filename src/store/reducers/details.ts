@@ -1,7 +1,6 @@
 import { detailsAction, ICard, SET_DETAILS } from "../../types/drinks";
-import { Card } from "../../utils/drinks";
 
-const defaultState: ICard = Card;
+const defaultState: ICard = {} as ICard;
 
 export const detailsReducer = (state = defaultState, action: detailsAction): ICard => {
     switch (action.type) {
